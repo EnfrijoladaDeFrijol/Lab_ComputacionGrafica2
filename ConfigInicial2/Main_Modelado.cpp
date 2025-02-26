@@ -1,7 +1,8 @@
 /*
-	Modelado Geométrico en OpenGL
+	Practica 4: Modelado Geométrico en OpenGL (Avance|)
 	Meza Sanchez Luis Arturo
-	Fecha de entrega: 22 / Feb / 2025
+	318195858
+	Fecha de entrega:  / Feb / 2025
 */
 
 #include<iostream>
@@ -88,14 +89,14 @@ int main() {
 
 	// use with Perspective Projection
 	float vertices[] = {
-		-0.5f, -0.5f, 0.5f, 1.0f, 0.0f,0.0f,//Front
+		-0.5f, -0.5f, 0.5f, 1.0f, 0.0f,0.0f,
 		0.5f, -0.5f, 0.5f,  1.0f, 0.0f,0.0f,
 		0.5f,  0.5f, 0.5f,  1.0f, 0.0f,0.0f,
 		0.5f,  0.5f, 0.5f,  1.0f, 0.0f,0.0f,
 		-0.5f,  0.5f, 0.5f, 1.0f, 0.0f,0.0f,
 		-0.5f, -0.5f, 0.5f, 1.0f, 0.0f,0.0f,
 		
-	    -0.5f, -0.5f,-0.5f, 0.0f, 1.0f,0.0f,//Back
+	    -0.5f, -0.5f,-0.5f, 0.0f, 1.0f,0.0f,
 		 0.5f, -0.5f,-0.5f, 0.0f, 1.0f,0.0f,
 		 0.5f,  0.5f,-0.5f, 0.0f, 1.0f,0.0f,
 		 0.5f,  0.5f,-0.5f, 0.0f, 1.0f,0.0f,
@@ -129,6 +130,51 @@ int main() {
 		0.5f,  0.5f,  0.5f,  1.0f, 0.2f,0.5f,
 		-0.5f,  0.5f,  0.5f, 1.0f, 0.2f,0.5f,
 		-0.5f,  0.5f, -0.5f, 1.0f, 0.2f,0.5f,
+
+		// R O J O (36 - 73)
+		-0.5f, -0.5f, 0.5f, 235.0f / 255.0f, 66.0f / 255.0f, 66.0f / 255.0f,
+		0.5f, -0.5f, 0.5f,  235.0f / 255.0f, 66.0f / 255.0f, 66.0f / 255.0f,
+		0.5f,  0.5f, 0.5f,  235.0f / 255.0f, 66.0f / 255.0f, 66.0f / 255.0f,
+		0.5f,  0.5f, 0.5f,  235.0f / 255.0f, 66.0f / 255.0f, 66.0f / 255.0f,
+		-0.5f,  0.5f, 0.5f, 235.0f / 255.0f, 66.0f / 255.0f, 66.0f / 255.0f,
+		-0.5f, -0.5f, 0.5f, 235.0f / 255.0f, 66.0f / 255.0f, 66.0f / 255.0f,
+
+		-0.5f, -0.5f,-0.5f, 235.0f / 255.0f, 66.0f / 255.0f, 66.0f / 255.0f,
+		 0.5f, -0.5f,-0.5f, 235.0f / 255.0f, 66.0f / 255.0f, 66.0f / 255.0f,
+		 0.5f,  0.5f,-0.5f, 235.0f / 255.0f, 66.0f / 255.0f, 66.0f / 255.0f,
+		 0.5f,  0.5f,-0.5f, 235.0f / 255.0f, 66.0f / 255.0f, 66.0f / 255.0f,
+		-0.5f,  0.5f,-0.5f, 235.0f / 255.0f, 66.0f / 255.0f, 66.0f / 255.0f,
+		-0.5f, -0.5f,-0.5f, 235.0f / 255.0f, 66.0f / 255.0f, 66.0f / 255.0f,
+
+		 0.5f, -0.5f,  0.5f,  235.0f / 255.0f, 66.0f / 255.0f, 66.0f / 255.0f,
+		 0.5f, -0.5f, -0.5f,  235.0f / 255.0f, 66.0f / 255.0f, 66.0f / 255.0f,
+		 0.5f,  0.5f, -0.5f,  235.0f / 255.0f, 66.0f / 255.0f, 66.0f / 255.0f,
+		 0.5f,  0.5f, -0.5f,  235.0f / 255.0f, 66.0f / 255.0f, 66.0f / 255.0f,
+		 0.5f,  0.5f,  0.5f,  235.0f / 255.0f, 66.0f / 255.0f, 66.0f / 255.0f,
+		 0.5f,  -0.5f, 0.5f, 235.0f / 255.0f, 66.0f / 255.0f, 66.0f / 255.0f,
+
+		-0.5f,  0.5f,  0.5f,  235.0f / 255.0f, 66.0f / 255.0f, 66.0f / 255.0f,
+		-0.5f,  0.5f, -0.5f,  235.0f / 255.0f, 66.0f / 255.0f, 66.0f / 255.0f,
+		-0.5f, -0.5f, -0.5f,  235.0f / 255.0f, 66.0f / 255.0f, 66.0f / 255.0f,
+		-0.5f, -0.5f, -0.5f,  235.0f / 255.0f, 66.0f / 255.0f, 66.0f / 255.0f,
+		-0.5f, -0.5f,  0.5f,  235.0f / 255.0f, 66.0f / 255.0f, 66.0f / 255.0f,
+		-0.5f,  0.5f,  0.5f,  235.0f / 255.0f, 66.0f / 255.0f, 66.0f / 255.0f,
+
+		-0.5f, -0.5f, -0.5f, 235.0f / 255.0f, 66.0f / 255.0f, 66.0f / 255.0f,
+		0.5f, -0.5f, -0.5f,  235.0f / 255.0f, 66.0f / 255.0f, 66.0f / 255.0f,
+		0.5f, -0.5f,  0.5f,  235.0f / 255.0f, 66.0f / 255.0f, 66.0f / 255.0f,
+		0.5f, -0.5f,  0.5f,  235.0f / 255.0f, 66.0f / 255.0f, 66.0f / 255.0f,
+		-0.5f, -0.5f,  0.5f, 235.0f / 255.0f, 66.0f / 255.0f, 66.0f / 255.0f,
+		-0.5f, -0.5f, -0.5f, 235.0f / 255.0f, 66.0f / 255.0f, 66.0f / 255.0f,
+
+		-0.5f,  0.5f, -0.5f, 235.0f / 255.0f, 66.0f / 255.0f, 66.0f / 255.0f,
+		0.5f,  0.5f, -0.5f,  235.0f / 255.0f, 66.0f / 255.0f, 66.0f / 255.0f,
+		0.5f,  0.5f,  0.5f,  235.0f / 255.0f, 66.0f / 255.0f, 66.0f / 255.0f,
+		0.5f,  0.5f,  0.5f,  235.0f / 255.0f, 66.0f / 255.0f, 66.0f / 255.0f,
+		-0.5f,  0.5f,  0.5f, 235.0f / 255.0f, 66.0f / 255.0f, 66.0f / 255.0f,
+		-0.5f,  0.5f, -0.5f, 235.0f / 255.0f, 66.0f / 255.0f, 66.0f / 255.0f,
+
+
 	};
 
 
@@ -203,41 +249,41 @@ int main() {
 
 		glBindVertexArray(VAO);
 	
-		// T a b l a   d e   l a   m e s a
+		// Torso abajo (Rojo)
 	    model = glm::mat4(1.0f);
-		model = glm::scale(model, glm::vec3(3.0f, 0.1f, 2.0f));
-		model = glm::translate(model, glm::vec3(0.0f, 0.6f, 0.0f));
+		model = glm::scale(model, glm::vec3(1.0f, 0.5f, 1.0f));
+		model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f));
 		//model = glm::rotate(model, 1.2f, glm::vec3(1.0f, 1.0f, 1.0f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		glDrawArrays(GL_TRIANGLES, 0, 36);
+		glDrawArrays(GL_TRIANGLES, 36, 73);
 
-		//	P a t a   1
+		// Espalda (Rojo)
 		model = glm::mat4(1.0f);
-		model = glm::scale(model, glm::vec3(0.1f, 0.6f, 0.1f));
-		model = glm::translate(model, glm::vec3(2.9f, -0.6f, 1.9f));
+		model = glm::scale(model, glm::vec3(1.0f, 1.0f, 0.2f));
+		model = glm::translate(model, glm::vec3(0.0f, 0.5f, -2.0f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		glDrawArrays(GL_TRIANGLES, 0, 36);
+		glDrawArrays(GL_TRIANGLES, 36, 73);
 
-		//	P a t a   2
+		// Torso arriba (Rojo)
 		model = glm::mat4(1.0f);
-		model = glm::scale(model, glm::vec3(0.1f, 0.6f, 0.1f));
-		model = glm::translate(model, glm::vec3(-2.9f, -0.6f, 1.9f));
+		model = glm::scale(model, glm::vec3(1.0f, 0.8f, 0.8f));
+		model = glm::translate(model, glm::vec3(0.0f, 0.75f, -1.0f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		glDrawArrays(GL_TRIANGLES, 0, 36);
+		glDrawArrays(GL_TRIANGLES, 36, 73);
 
-		//	P a t a   3
+		// Pata derecha (Rojo)
 		model = glm::mat4(1.0f);
-		model = glm::scale(model, glm::vec3(0.1f, 0.6f, 0.1f));
-		model = glm::translate(model, glm::vec3(-2.9f, -0.6f, -1.9f));
+		model = glm::scale(model, glm::vec3(0.3f, 0.5f, 0.3f));
+		model = glm::translate(model, glm::vec3(-0.5f, -0.7f, 0.0f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		glDrawArrays(GL_TRIANGLES, 0, 36);
+		glDrawArrays(GL_TRIANGLES, 36, 73);
 
-		//	P a t a   4
+		// Pata izquierda (Rojo)
 		model = glm::mat4(1.0f);
-		model = glm::scale(model, glm::vec3(0.1f, 0.6f, 0.1f));
-		model = glm::translate(model, glm::vec3(2.9f, -0.6f, -1.9f));
+		model = glm::scale(model, glm::vec3(0.3f, 0.5f, 0.3f));
+		model = glm::translate(model, glm::vec3(0.5f, -0.7f, 0.0f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		glDrawArrays(GL_TRIANGLES, 0, 36);
+		glDrawArrays(GL_TRIANGLES, 36, 73);
 
 		glBindVertexArray(0);
 		// Swap the screen buffers
