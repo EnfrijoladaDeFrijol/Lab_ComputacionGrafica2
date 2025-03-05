@@ -1,8 +1,8 @@
 /*
-	Practica 5: Modelado Jerárquico (Previo)
+	Practica 5: Modelado Jerárquico (Avance)
 	Meza Sanchez Luis Arturo
 	318195858
-	Fecha de entrega: 28 / Feb / 2025
+	Fecha de entrega: 05 / Mar / 2025
 */
 
 #include<iostream>
@@ -29,9 +29,13 @@ float hombro = 0.0f;
 float codo = 0.0f;
 float muneca = 0.0f;
 float dedo1 = 0.0f;
-float dedo2 = 0.0F;
-float dedo3 = 0.0f;
 float dedo1b = 0.0f;
+float dedo2 = 0.0f;
+float dedo2b = 0.0f;
+float dedo3 = 0.0f;
+float dedo3b = 0.0f;
+float dedo4 = 0.0f;
+float dedo4b = 0.0f;
 float pulgar = 0.0f;
 float pulgarb = 0.0f;
 
@@ -246,7 +250,7 @@ int main() {
 		glDrawArrays(GL_TRIANGLES, 0, 36);//C
 
 		// ------------------------ Dedo 1 pt1 --------------------------------
-		model = glm::translate(modelTemp, glm::vec3(0.25f, 0.35f, 0.375f));
+		model = glm::translate(modelTemp, glm::vec3(0.25f, 0.35f, 0.4f));
 		model = glm::rotate(model, glm::radians(dedo1), glm::vec3(0.0f, 0.0f, 1.0f));
 		modelTemp = model = glm::translate(model, glm::vec3(0.5f, 0.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(1.0f, 0.3f, 0.25f));
@@ -256,15 +260,98 @@ int main() {
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		glDrawArrays(GL_TRIANGLES, 0, 36);//D
 		// ------------------------ Dedo 1 pt2 --------------------------------
-		model = glm::translate(modelTemp, glm::vec3(0.5f, 0.0f, 0.0f));
+		model = glm::translate(modelTemp, glm::vec3(1.0f, 0.0f, 0.0f));
 		model = glm::rotate(model, glm::radians(dedo1b), glm::vec3(0.0f, 0.0f, 1.0f));
-		model = glm::translate(model, glm::vec3(0.5f, 0.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(1.0f, 0.3f, 0.25f));
 		color = glm::vec3(1.0f, 0.0f, 1.0f);
 		// Dibujamos
 		glUniform3fv(uniformColor, 1, glm::value_ptr(color));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		glDrawArrays(GL_TRIANGLES, 0, 36);//E
+
+		// ------------------------ Dedo 2 pt1 --------------------------------
+		model = glm::translate(modelTemp, glm::vec3(-0.5f, 0.01f, -0.3f));
+		model = glm::rotate(model, glm::radians(dedo2), glm::vec3(0.0f, 0.0f, 1.0f));
+		modelTemp = model = glm::translate(model, glm::vec3(0.5f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(1.0f, 0.3f, 0.25f));
+		color = glm::vec3(1.0f, 1.0f, 0.7f);
+		// Dibujamos
+		glUniform3fv(uniformColor, 1, glm::value_ptr(color));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);//F
+		// ------------------------ Dedo 2 pt2 --------------------------------
+		model = glm::translate(modelTemp, glm::vec3(0.5f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(dedo1b), glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::translate(model, glm::vec3(0.5f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(1.0f, 0.3f, 0.25f));
+		color = glm::vec3(0.8f, 0.7f, 1.0f);
+		// Dibujamos
+		glUniform3fv(uniformColor, 1, glm::value_ptr(color));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);//G
+
+		// ------------------------ Dedo 3 pt1 --------------------------------
+		model = glm::translate(modelTemp, glm::vec3(-0.5f, 0.01f, -0.275f));
+		model = glm::rotate(model, glm::radians(dedo3), glm::vec3(0.0f, 0.0f, 1.0f));
+		modelTemp = model = glm::translate(model, glm::vec3(0.5f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(1.0f, 0.3f, 0.25f));
+		color = glm::vec3(1.0f, 1.0f, 0.7f);
+		// Dibujamos
+		glUniform3fv(uniformColor, 1, glm::value_ptr(color));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);//F
+		// ------------------------ Dedo 3 pt2 --------------------------------
+		model = glm::translate(modelTemp, glm::vec3(0.5f, 0.0f, -0.0f));
+		model = glm::rotate(model, glm::radians(dedo1b), glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::translate(model, glm::vec3(0.5f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(1.0f, 0.3f, 0.25f));
+		color = glm::vec3(0.8f, 0.7f, 1.0f);
+		// Dibujamos
+		glUniform3fv(uniformColor, 1, glm::value_ptr(color));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);//G
+
+		// ------------------------ Dedo 4 pt1 --------------------------------
+		model = glm::translate(modelTemp, glm::vec3(-0.5f, 0.01f, -0.4f));
+		model = glm::rotate(model, glm::radians(dedo4), glm::vec3(0.0f, 0.0f, 1.0f));
+		modelTemp = model = glm::translate(model, glm::vec3(0.5f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(1.0f, 0.3f, 0.25f));
+		color = glm::vec3(1.0f, 1.0f, 0.7f);
+		// Dibujamos
+		glUniform3fv(uniformColor, 1, glm::value_ptr(color));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);//F
+		// ------------------------ Dedo 3 pt2 --------------------------------
+		model = glm::translate(modelTemp, glm::vec3(0.5f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(dedo1b), glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::translate(model, glm::vec3(0.5f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(1.0f, 0.3f, 0.25f));
+		color = glm::vec3(0.8f, 0.7f, 1.0f);
+		// Dibujamos
+		glUniform3fv(uniformColor, 1, glm::value_ptr(color));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);//G
+
+		// ------------------------ Pulgar pt1 --------------------------------
+		model = glm::translate(modelTemp3, glm::vec3(0.0f, -0.35f, -0.02f));
+		model = glm::rotate(model, glm::radians(pulgar), glm::vec3(0.0f, 0.0f, 1.0f));
+		modelTemp = model = glm::translate(model, glm::vec3(0.5f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.8f, 0.3f, 0.25f));
+		color = glm::vec3(0.7f, 1.0f, 0.85f);
+		// Dibujamos
+		glUniform3fv(uniformColor, 1, glm::value_ptr(color));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);//F
+		// ------------------------ Pulgar pt2 --------------------------------
+		model = glm::translate(modelTemp, glm::vec3(0.3f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(pulgarb), glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::translate(model, glm::vec3(0.5f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.8f, 0.3f, 0.25f));
+		color = glm::vec3(1.0f, 0.85f, 0.7f);
+		// Dibujamos
+		glUniform3fv(uniformColor, 1, glm::value_ptr(color));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);//G
 
 
 
