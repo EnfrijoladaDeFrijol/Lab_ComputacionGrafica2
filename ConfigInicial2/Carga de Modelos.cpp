@@ -1,8 +1,8 @@
 /*
-    Practica 6: Carga de modelos (Previo)
+    Practica 6: Carga de modelos 
 	Meza Sanchez Luis Arturo
 	318195858
-	Fecha de entrega: 10 / Mar / 2025
+	Fecha de entrega: 16 / Mar / 2025
 */
 
 // Std. Includes
@@ -105,6 +105,10 @@ int main( )
     // ======================================================================================
     Model dog((char*)"Models/Perrito/RedDog.obj");                  // Perrito rojo
     Model umbrella((char*)"Models/umbrella/umbrella.obj");          // Paraguas
+    Model palm((char*)"Models/palm/free_palm.obj");                 // Palmera
+    Model castle((char*)"Models/castle/castle.obj");                // Castillo de arena
+    Model seastar((char*)"Models/seastar/seastar.obj");             // Estrella de mar
+    Model ball((char*)"Models/beachball/beachball.obj");            // Bola de playa
 
 
 
@@ -136,7 +140,7 @@ int main( )
 
         // Draw the loaded model
         glm::mat4 model(1);
-        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        //glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 
         // ======================================================================================
         // =========================  C A R G A   D E   M O D E L O S  ==========================
@@ -145,17 +149,45 @@ int main( )
         // --- Perrito ---
        // dog.Draw(shader);
 
-        // --- Perrito escalado ---
-        model = glm::translate(model, glm::vec3(3.0f, 0.0f, 0.0f));
+        // --- Perrito ---
+        model = glm::translate(model, glm::vec3(1.0f, 0.0f, 1.0f));
         model = glm::scale(model, glm::vec3(2.0f, 2.0f, 2.0f));
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-        //og.Draw(shader);
+        dog.Draw(shader);
 
-        // --- Paraguas ---
-        model = glm::translate(model, glm::vec3(1.0f, 0.2f, 0.0f));
-        model = glm::scale(model, glm::vec3(1.0f, 1.2f, 1.0f));
+        /*=====================================  Código para la practica ==================================*/
+
+        //               ---------------------------- Palmera ------------------------------------
+        model = glm::translate(model, glm::vec3(-0.7f, -0.35f, -1.0f));
+        model = glm::scale(model, glm::vec3(0.5f, 0.5f, 0.5f));
+        model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-        umbrella.Draw(shader);
+        palm.Draw(shader);
+        //               ---------------------------- Pelota ------------------------------------
+        model = glm::translate(model, glm::vec3(2.0f, 0.3f, 0.7f));
+        model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));
+        model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        ball.Draw(shader);
+        //               ---------------------------- Castillo ------------------------------------
+        model = glm::translate(model, glm::vec3(-0.5f, 0.0f, 4.0f));
+        model = glm::scale(model, glm::vec3(4.0f, 4.0f, 4.0f));
+        model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        //castle.Draw(shader);
+        //               ---------------------------- Estrella ------------------------------------
+        model = glm::translate(model, glm::vec3(-0.5f, 0.0f, -0.5f));
+        model = glm::scale(model, glm::vec3(0.4f, 0.4f, 0.4f));
+        model = glm::rotate(model, glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        //seastar.Draw(shader);
+        //               ---------------------------- Paraguas ------------------------------------
+        model = glm::translate(model, glm::vec3(-1.5f, 1.3f, 0.5f));
+        model = glm::scale(model, glm::vec3(3.4f, 3.4f, 3.4f));
+        model = glm::rotate(model, glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        //umbrella.Draw(shader);
+
 
         // Swap the buffers
         glfwSwapBuffers( window );
