@@ -1,4 +1,11 @@
 
+/*
+	Practica 7: Texturizado (Previo)
+	Meza Sanchez Luis Arturo
+	318195858
+	Fecha de entrega: 18 / Mar / 2025
+ */
+
 #include <iostream>
 #include <cmath>
 
