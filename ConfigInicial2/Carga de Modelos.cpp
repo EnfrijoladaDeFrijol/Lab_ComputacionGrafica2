@@ -109,6 +109,8 @@ int main( )
     Model castle((char*)"Models/castle/castle.obj");                // Castillo de arena
     Model seastar((char*)"Models/seastar/seastar.obj");             // Estrella de mar
     Model ball((char*)"Models/beachball/beachball.obj");            // Bola de playa
+    // Test
+    Model lap((char*)"Models/laptop/laptopborrar.obj");
 
 
 
@@ -158,35 +160,39 @@ int main( )
         /*=====================================  Código para la practica ==================================*/
 
         //               ---------------------------- Palmera ------------------------------------
-        model = glm::translate(model, glm::vec3(-0.7f, -0.35f, -1.0f));
-        model = glm::scale(model, glm::vec3(0.5f, 0.5f, 0.5f));
-        model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+        //model = glm::translate(model, glm::vec3(-0.7f, -0.35f, -1.0f));
+        //model = glm::scale(model, glm::vec3(0.5f, 0.5f, 0.5f));
+        //model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+        //glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        //palm.Draw(shader);
+        ////               ---------------------------- Pelota ------------------------------------
+        //model = glm::translate(model, glm::vec3(2.0f, 0.3f, 0.7f));
+        //model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));
+        //model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+        //glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        //ball.Draw(shader);
+        ////               ---------------------------- Castillo ------------------------------------
+        //model = glm::translate(model, glm::vec3(-0.5f, 0.0f, 4.0f));
+        //model = glm::scale(model, glm::vec3(4.0f, 4.0f, 4.0f));
+        //model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+        //glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        ////castle.Draw(shader);
+        ////               ---------------------------- Estrella ------------------------------------
+        //model = glm::translate(model, glm::vec3(-0.5f, 0.0f, -0.5f));
+        //model = glm::scale(model, glm::vec3(0.4f, 0.4f, 0.4f));
+        //model = glm::rotate(model, glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+        //glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        ////seastar.Draw(shader);
+        ////               ---------------------------- Paraguas ------------------------------------
+        //model = glm::translate(model, glm::vec3(-1.5f, 1.3f, 0.5f));
+        //model = glm::scale(model, glm::vec3(3.4f, 3.4f, 3.4f));
+        //model = glm::rotate(model, glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+        //glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        ////umbrella.Draw(shader);
+
+        //               ---------------------------- Laptop ------------------------------------
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-        palm.Draw(shader);
-        //               ---------------------------- Pelota ------------------------------------
-        model = glm::translate(model, glm::vec3(2.0f, 0.3f, 0.7f));
-        model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));
-        model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-        ball.Draw(shader);
-        //               ---------------------------- Castillo ------------------------------------
-        model = glm::translate(model, glm::vec3(-0.5f, 0.0f, 4.0f));
-        model = glm::scale(model, glm::vec3(4.0f, 4.0f, 4.0f));
-        model = glm::rotate(model, glm::radians(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-        //castle.Draw(shader);
-        //               ---------------------------- Estrella ------------------------------------
-        model = glm::translate(model, glm::vec3(-0.5f, 0.0f, -0.5f));
-        model = glm::scale(model, glm::vec3(0.4f, 0.4f, 0.4f));
-        model = glm::rotate(model, glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0f));
-        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-        //seastar.Draw(shader);
-        //               ---------------------------- Paraguas ------------------------------------
-        model = glm::translate(model, glm::vec3(-1.5f, 1.3f, 0.5f));
-        model = glm::scale(model, glm::vec3(3.4f, 3.4f, 3.4f));
-        model = glm::rotate(model, glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0f));
-        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-        //umbrella.Draw(shader);
+        lap.Draw(shader);
 
 
         // Swap the buffers
