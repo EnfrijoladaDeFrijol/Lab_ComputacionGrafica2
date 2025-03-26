@@ -1,15 +1,15 @@
 
 /*
-	Practica 7: Texturizado (Previo)
+	Practica 7: Texturizado 
 	Meza Sanchez Luis Arturo
 	318195858
-	Fecha de entrega: 18 / Mar / 2025
+	Fecha de entrega: 20 / Mar / 2025
  */
 
 #include <iostream>
 #include <cmath>
 
-// GLEW
+ // GLEW
 #include <GL/glew.h>
 
 // GLFW
@@ -29,8 +29,8 @@
 
 
 // Function prototypes
-void KeyCallback(GLFWwindow *window, int key, int scancode, int action, int mode);
-void MouseCallback(GLFWwindow *window, double xPos, double yPos);
+void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode);
+void MouseCallback(GLFWwindow* window, double xPos, double yPos);
 void DoMovement();
 
 // Window dimensions
@@ -51,7 +51,7 @@ glm::vec3 lightPos(1.2f, 1.0f, 2.0f);
 GLfloat deltaTime = 0.0f;	// Time between current frame and last frame
 GLfloat lastFrame = 0.0f;  	// Time of last frame
 
-							// The MAIN function, from here we start the application and run the game loop
+// The MAIN function, from here we start the application and run the game loop
 int main()
 {
 	// Init GLFW
@@ -64,7 +64,7 @@ int main()
 	glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
 
 	// Create a GLFWwindow object that we can use for GLFW's functions
-	GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, "Texturizado", nullptr, nullptr);
+	GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, "Texturizado | Luis Arturo Meza Sanchez", nullptr, nullptr);
 
 	if (nullptr == window)
 	{
@@ -101,30 +101,59 @@ int main()
 	glEnable(GL_DEPTH_TEST);
 
 
-	// Build and compile our shader program
+	// Build and compile our shader program, es lo nuevo
 	Shader lampShader("Shader/lamp.vs", "Shader/lamp.frag");
 
 	// Set up vertex data (and buffer(s)) and attribute pointers
 	GLfloat vertices[] =
 	{
-		// Positions            // Colors              // Texture Coords
-		-0.5f, -0.5f, 0.0f,    1.0f, 1.0f,1.0f,		0.0f,0.0f,
-		0.5f, -0.5f, 0.0f,	   1.0f, 1.0f,1.0f,		1.0f,0.0f,
-		0.5f,  0.5f, 0.0f,     1.0f, 1.0f,1.0f,	    1.0f,1.0f,
-		-0.5f,  0.5f, 0.0f,    1.0f, 1.0f,1.0f,		0.0f,1.0f,
-
-		
+		// Positions            // Colors           // Texture Coords
+		// CARA 1
+		-0.5f, -0.5f, 0.0f,    1.0f, 1.0f,1.0f,		0.0f,0.25f,		// inferior izquierdo
+		0.5f, -0.5f, 0.0f,	   1.0f, 1.0f,1.0f,		0.25f,0.25f,	// inferior derecho
+		0.5f,  0.5f, 0.0f,     1.0f, 1.0f,1.0f,	    0.25f,0.5f,		// superior derecho
+		-0.5f,  0.5f, 0.0f,    1.0f, 1.0f,1.0f,		0.0f,0.5f,		// superior izquierdo
+		// CARA 2
+		0.5f, -0.5f, 1.0f,    1.0f, 1.0f,1.0f,		0.5f,0.25f,		// inferior derecho
+		0.5f, 0.5f, 1.0f,	   1.0f, 1.0f,1.0f,		0.5f,0.5f,		// superior derecho
+		// CARA 3
+		-0.5f, -0.5f, 1.0f,    1.0f, 1.0f,1.0f,		0.75f,0.25f,	// inferior derecho
+		-0.5f, 0.5f, 1.0f,	   1.0f, 1.0f,1.0f,		0.75f,0.5f,		// superior derecho
+		// CARA 4
+		-0.5f, -0.5f, 0.0f,    1.0f, 1.0f,1.0f,		1.0f,0.25f,		// inferior derecho
+		-0.5f, 0.5f, 0.0f,	   1.0f, 1.0f,1.0f,		1.0f,0.5f,		// superior derecho
+		// CARA 5
+		-0.5f, 0.5f, -0.0f,    1.0f, 1.0f,1.0f,		0.75f,0.75f,	// superior derecho
+		0.5f, 0.5f, -0.0f,	   1.0f, 1.0f,1.0f,		0.5f,0.75f,		// superior izquierdo
+		// CARA 6
+		0.5f, -0.5f, 0.0f,    1.0f, 1.0f,1.0f,		0.5f,0.0f,		// inferior izquierdo
+		-0.5f, -0.5f, 0.0f,	   1.0f, 1.0f,1.0f,		0.75f,0.0f,		// inferior derecho
 	};
 
 	GLuint indices[] =
 	{  // Note that we start from 0!
+		// CARA 1
 		0,1,3,
-		1,2,3
-	
+		1,2,3,
+		// CARA 2
+		1,4,2,
+		4,5,2,
+		// CARA 3
+		4,6,5,
+		6,7,5,
+		// CARA 4
+		6,8,7,
+		8,9,7,
+		// CARA 5
+		7,10,5,
+		10,11,5,
+		// CARA 6
+		4,12,6,
+		12,13,6
 	};
 
 	// First, set the container's VAO (and VBO)
-	GLuint VBO, VAO,EBO;
+	GLuint VBO, VAO, EBO;
 	glGenVertexArrays(1, &VAO);
 	glGenBuffers(1, &VBO);
 	glGenBuffers(1, &EBO);
@@ -137,41 +166,43 @@ int main()
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
 	// Position attribute
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid *)0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)0);
 	glEnableVertexAttribArray(0);
 	// Color attribute
-	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid *)(3 * sizeof(GLfloat)));
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)(3 * sizeof(GLfloat)));
 	glEnableVertexAttribArray(1);
-	// Texture Coordinate attribute
-	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid *)(6 * sizeof(GLfloat)));
+	// Aqui es donde colocamos la textura de la matriz, la cual es la tercera posicion, indice 2
+	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)(6 * sizeof(GLfloat)));
 	glEnableVertexAttribArray(2);
 	glBindVertexArray(0);
 
 	// Load textures
 	GLuint texture1;
-	glGenTextures(1, &texture1);
-	glBindTexture(GL_TEXTURE_2D,texture1);
-	int textureWidth, textureHeight,nrChannels;
-	stbi_set_flip_vertically_on_load(true);
-	unsigned char *image;
+	glGenTextures(1, &texture1);													// Generamos un identificador (texture1)
+	glBindTexture(GL_TEXTURE_2D, texture1);											// Enlazamos identificador con el tipo de elemento2D
+	int textureWidth, textureHeight, nrChannels;
+	stbi_set_flip_vertically_on_load(true);											// Nos reacomoda la coordenada 0,0
+	unsigned char* image;
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST_MIPMAP_NEAREST);
 	// Diffuse map
-	// =======================================================================
-	image = stbi_load("images/checker_Tex.png", &textureWidth, &textureHeight, &nrChannels, 0);
-	image = stbi_load("images/tierra.png", &textureWidth, &textureHeight, &nrChannels, 0);
-	// ============ Con transparencia ===========================
-	image = stbi_load("images/window.png", &textureWidth, &textureHeight, &nrChannels,0);
-	image = stbi_load("images/bimbo.png", &textureWidth, &textureHeight, &nrChannels, 0);
-	
+	// Sin transparencia
+	//image = stbi_load("images/checker_Tex.png", &textureWidth, &textureHeight, &nrChannels, 0);
+	//image = stbi_load("images/tierra.png", &textureWidth, &textureHeight, &nrChannels, 0);
+	// Con transparencia
+	//image = stbi_load("images/window.png", &textureWidth, &textureHeight, &nrChannels,0);
+	//image = stbi_load("images/bimbo.png", &textureWidth, &textureHeight, &nrChannels, 0);
+
+	image = stbi_load("images/dado.png", &textureWidth, &textureHeight, &nrChannels, 0);
+
 	glBindTexture(GL_TEXTURE_2D, texture1);
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, textureWidth, textureHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
 	glGenerateMipmap(GL_TEXTURE_2D);
 	if (image)
 	{
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, textureWidth, textureHeight, 0, GL_RGBA, GL_UNSIGNED_BYTE, image);
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, textureWidth, textureHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
 		glGenerateMipmap(GL_TEXTURE_2D);
 	}
 	else
@@ -180,7 +211,7 @@ int main()
 	}
 	stbi_image_free(image);
 
-	
+
 
 	// Game loop
 	while (!glfwWindowShouldClose(window))
@@ -220,7 +251,9 @@ int main()
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		// Draw the light object (using light's vertex attributes)
 		glBindVertexArray(VAO);
-		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+		glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
+
+		// aca hay que poner las carasw
 		glBindVertexArray(0);
 
 		// Swap the screen buffers
@@ -262,7 +295,7 @@ void DoMovement()
 }
 
 // Is called whenever a key is pressed/released via GLFW
-void KeyCallback(GLFWwindow *window, int key, int scancode, int action, int mode)
+void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode)
 {
 	if (GLFW_KEY_ESCAPE == key && GLFW_PRESS == action)
 	{
@@ -282,7 +315,7 @@ void KeyCallback(GLFWwindow *window, int key, int scancode, int action, int mode
 	}
 }
 
-void MouseCallback(GLFWwindow *window, double xPos, double yPos)
+void MouseCallback(GLFWwindow* window, double xPos, double yPos)
 {
 	if (firstMouse)
 	{
